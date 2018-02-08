@@ -15,6 +15,7 @@ class StudentsController < ApplicationController
   # GET /students/new
   def new
     @student = Student.new
+    @student.build_contact # @[objeto].build_[nome-do-campo]
   end
 
   # GET /students/1/edit
@@ -28,7 +29,7 @@ class StudentsController < ApplicationController
 
     respond_to do |format|
       if @student.save
-        format.html { redirect_to @student, notice: 'Student was successfully created.' }
+        format.html { redirect_to @student, notice: 'Estudante criado com sucesso.' }
         format.json { render :show, status: :created, location: @student }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class StudentsController < ApplicationController
   def update
     respond_to do |format|
       if @student.update(student_params)
-        format.html { redirect_to @student, notice: 'Student was successfully updated.' }
+        format.html { redirect_to @student, notice: 'Estudante atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @student }
       else
         format.html { render :edit }
@@ -56,7 +57,7 @@ class StudentsController < ApplicationController
   def destroy
     @student.destroy
     respond_to do |format|
-      format.html { redirect_to students_url, notice: 'Student was successfully destroyed.' }
+      format.html { redirect_to students_url, notice: 'Estudante apagado com sucesso.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +70,9 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:nome, :matricula, :email)
+      params.require(:student).permit(
+        :nome, :matricula,
+        contact_attributes: [:email, :telefone]
+      )
     end
 end

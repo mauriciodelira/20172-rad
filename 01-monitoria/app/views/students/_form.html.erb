@@ -11,22 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :nome %>
-    <%= form.text_field :nome, id: :student_nome %>
+  <div class="form-group row">
+    <%= form.label :nome, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= form.text_field :nome, id: :student_nome, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :matricula %>
-    <%= form.text_field :matricula, id: :student_matricula %>
+  <div class="form-group row">
+    <%= form.label :matricula, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= form.text_field :matricula, id: :student_matricula, class: "form-control"  %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :student_email %>
-  </div>
+  <%= form.fields_for :contact do |contato| %>
+    <div class="form-group row">
+      <%= form.label :email, class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+        <%= contato.text_field :email, id: :student_email, class: "form-control"  %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= form.label :telefone, class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+        <%= contato.text_field :telefone, id: :student_telefone, class: "form-control"  %>
+      </div>
+    </div>
+  <% end %>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Salvar", class:"button btn btn-primary"%>
   </div>
 <% end %>

@@ -1,0 +1,1 @@
+rails db:drop:_unsafe db:create:_unsafe db:migrate:_unsafe db:seed:_unsafe populate:disciplines:_unsafe populate:students:_unsafe populate:subscriptions:_unsafe

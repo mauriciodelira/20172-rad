@@ -13,3 +13,12 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//
+// Puxa o jquery da gem 'jquery'
+//
+//= require jquery
+//= require jquery_ujs
+//
+// Puxa o bootstrap da gem 'bootstrap'
+//
+//= require bootstrap

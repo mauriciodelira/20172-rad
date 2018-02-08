@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+
+print "Inserindo Semestres..."
+for i in 2010 .. 2017
+    for j in 1 .. 2
+        Semester.create!(ano: i, periodo: j)
+    end
+end
+print " -- Fim Semestres -- "

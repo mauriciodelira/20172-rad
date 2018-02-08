@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Subscriptions</h1>
+<h1>Inscrições</h1>
 
-<table>
+<table class="table table-hover table-bordered">
   <thead>
     <tr>
       <th>Nota</th>
@@ -31,10 +31,10 @@
         -->
         <td><%= subscription.discipline.descricao %></td>
         <td><%= subscription.semester.ano %>.<%= subscription.semester.periodo %></td>
-        <td><%= subscription.student.nome %></td>
-        <td><%= link_to 'Show', subscription %></td>
-        <td><%= link_to 'Edit', edit_subscription_path(subscription) %></td>
-        <td><%= link_to 'Destroy', subscription, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= subscription.student.nome %> (<%= subscription.student.matricula %>)</td>
+        <td><%= link_to 'Enviar', subscription %></td>
+        <td><%= link_to 'Editar', edit_subscription_path(subscription) %></td>
+        <td><%= link_to 'Apagar', subscription, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -42,4 +42,4 @@
 
 <br>
 
-<%= link_to 'New Subscription', new_subscription_path %>
+<%= link_to 'Nova Inscrição', new_subscription_path, { :class => "btn btn-secondary"} %>
